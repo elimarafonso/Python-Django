@@ -1,0 +1,7 @@
+bibliotecas
+
+pip install mysql
+
+pip freeze requiremetns # pra salvar as alteraçies
+
+python manage.py migrate

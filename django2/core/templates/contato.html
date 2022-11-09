@@ -1,0 +1,31 @@
+
+{% load bootstrap5 %}
+<!--  -->
+<!-- importando biblioteca do requirements-->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Contato</title>
+    {% bootstrap_css %}
+</head>
+<body>
+
+    <div class="container">
+            <h1>Entre em contato comigo</h1>
+                  <!-- mostrar mensagens caso tenha problema no contato -->
+            {% bootstrap_messages %}
+                  <!-- este formulário envia um post para a url name ='contato' -->
+            <form action="{% url 'contato' %}" method="post" class="form" autocomplete="off">
+                  <!-- SEGURANÇA DO DJANGO, ele valida se os dados n foi alterado no caminho -->
+                {% csrf_token %} <!--PRECISA ESTAR DENTRO DO FORMULÁRIO -->
+                {% bootstrap_form form %} <!-- FORM que foi passado pela view, e o boot aplica css -->
+                {% buttons %}
+                <button type="submit" class="btn btn-primary">enviar</button>
+                {% endbuttons %}
+            </form>
+
+    </div>
+    {% bootstrap_javascript %}
+</body>
+</html>

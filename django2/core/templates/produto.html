@@ -1,0 +1,27 @@
+{% load bootstrap5 %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Produto</title>
+    {% bootstrap_css %}
+</head>
+<body>
+
+    <div class="container">
+
+        {% bootstrap_messages %}
+        <h1>Cadastro de Produtos</h1>
+        <form action="{% url 'produto' %}" class="form" method="POST" autocomplete="on" enctype="multipart/form-data" >
+            {% csrf_token %}
+            {% bootstrap_form form %}
+
+            {% buttons %}
+                <button>Cadastrar</button>
+            {% endbuttons%}
+        </form>
+
+    </div>
+    {% bootstrap_javascript %}
+</body>
+</html>
